@@ -1,16 +1,10 @@
 package com.cb.api.clients;
 
 
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import com.cb.api.dto.auth.AccessToken;
 
@@ -27,25 +21,15 @@ public class CoinbaseAuthRestTemplateClientImpl implements CoinbaseAuthRestTempl
     String clientSecret,
     String redirectUrl)
   {
-    RestTemplate restTemplate = new RestTemplate();
-    MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-    HttpHeaders headers = new HttpHeaders();
-
-    params.add("grant_type", grantType);
-    params.add("code", code);
-    params.add("client_id", clientId);
-    params.add("client_secret", clientSecret);
-    params.add("redirect_uri", redirectUrl);
-
-    UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(BASE_URL + "/oauth2/token")
-        .queryParams(params);
-
-    headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-    HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(params, headers);
-
-    // Send the HTTP POST request
-    ResponseEntity<AccessToken> responseEntity = restTemplate.exchange(builder.toUriString(),
-      HttpMethod.POST, requestEntity, AccessToken.class);
+    final String httpUrl = BASE_URL + "/oauth2/token";
+    ResponseEntity<AccessToken> responseEntity = new BetterRestTemplate<AccessToken>(
+        MediaType.APPLICATION_FORM_URLENCODED)//
+            .addParam("grant_type", grantType)//
+            .addParam("code", code)//
+            .addParam("client_id", clientId)//
+            .addParam("client_secret", clientSecret)//
+            .addParam("redirect_uri", redirectUrl)//
+            .exchange(httpUrl, HttpMethod.POST, AccessToken.class);
 
     return responseEntity.getBody();
   }
@@ -61,35 +45,15 @@ public class CoinbaseAuthRestTemplateClientImpl implements CoinbaseAuthRestTempl
     String state,
     String scope)
   {
-    RestTemplate restTemplate = new RestTemplate();
-    MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-    HttpHeaders headers = new HttpHeaders();
-
-    params.add("response_type", responseType);
-    params.add("client_id", clientId);
-
-    if (redirectUri != null)
-    {
-      params.add("redirect_uri", redirectUri);
-    }
-    if (state != null)
-    {
-      params.add("state", state);
-    }
-    if (scope != null)
-    {
-      params.add("scope", scope);
-    }
-
-    UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(BASE_URL + "/oauth2/auth")
-        .queryParams(params);
-
-    headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-    HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(params, headers);
-
-    // Send the HTTP GET request
-    ResponseEntity<String> responseEntity = restTemplate.exchange(builder.toUriString(),
-      HttpMethod.GET, requestEntity, String.class);
+    final String httpUrl = BASE_URL + "/oauth2/auth";
+    ResponseEntity<String> responseEntity = new BetterRestTemplate<String>(
+        MediaType.APPLICATION_FORM_URLENCODED)//
+            .addParam("response_type", responseType)//
+            .addParam("client_id", clientId)//
+            .addOptionalParam("redirect_uri", redirectUri)//
+            .addOptionalParam("state", state)//
+            .addOptionalParam("scope", scope)//
+            .exchange(httpUrl, HttpMethod.GET, String.class);
 
     return responseEntity.getBody();
   }
