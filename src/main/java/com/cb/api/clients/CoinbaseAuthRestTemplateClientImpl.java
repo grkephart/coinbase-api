@@ -24,6 +24,8 @@ public class CoinbaseAuthRestTemplateClientImpl implements CoinbaseAuthRestTempl
     final String httpUrl = BASE_URL + "/oauth2/token";
     ResponseEntity<AccessToken> responseEntity = new BetterRestTemplate<AccessToken>(
         MediaType.APPLICATION_FORM_URLENCODED)//
+            .addHeader("User-Agent", "Mozilla/5.0")//
+            .addHeader("CB-VERSION", "2017-05-19")//
             .addParam("grant_type", grantType)//
             .addParam("code", code)//
             .addParam("client_id", clientId)//
@@ -48,6 +50,8 @@ public class CoinbaseAuthRestTemplateClientImpl implements CoinbaseAuthRestTempl
     final String httpUrl = BASE_URL + "/oauth2/auth";
     ResponseEntity<String> responseEntity = new BetterRestTemplate<String>(
         MediaType.APPLICATION_FORM_URLENCODED)//
+            .addHeader("User-Agent", "Mozilla/5.0")//
+            .addHeader("CB-VERSION", "2017-05-19")//
             .addParam("response_type", responseType)//
             .addParam("client_id", clientId)//
             .addOptionalParam("redirect_uri", redirectUri)//

@@ -21,8 +21,8 @@ import org.springframework.web.util.UriComponentsBuilder;
  */
 public class BetterRestTemplate<T> extends RestTemplate
 {
-  private MultiValueMap<String, String> params;
   private HttpHeaders                   headers;
+  private MultiValueMap<String, String> params;
 
   /**
    * @param contentType
@@ -36,16 +36,11 @@ public class BetterRestTemplate<T> extends RestTemplate
   }
 
 
-  /**
-   * @param key
-   * @param value
-   * @return
-   */
-  public BetterRestTemplate<T> addParam(
-    String key,
+  public BetterRestTemplate<T> addHeader(
+    String name,
     String value)
   {
-    this.params.add(key, value);
+    this.headers.add(name, value);
 
     return this;
   }
@@ -70,20 +65,37 @@ public class BetterRestTemplate<T> extends RestTemplate
 
 
   /**
+   * @param key
+   * @param value
+   * @return
+   */
+  public BetterRestTemplate<T> addParam(
+    String key,
+    String value)
+  {
+    this.params.add(key, value);
+
+    return this;
+  }
+
+
+  /**
    * @param httpUrl
    * @param method
-   * @param clazz
+   * @param responseType
    * @return
    */
   public ResponseEntity<T> exchange(
     String httpUrl,
     HttpMethod method,
-    Class<T> clazz)
+    Class<T> responseType)
   {
-    UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(httpUrl).queryParams(params);
+    UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(httpUrl)
+        .queryParams(this.params);
     HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(this.params,
         this.headers);
 
-    return super.exchange(builder.toUriString(), method, requestEntity, clazz);
+    return super.exchange(builder.toUriString(), method, requestEntity, responseType);
   }
+
 }
