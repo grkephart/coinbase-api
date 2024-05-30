@@ -6,7 +6,6 @@ package com.cb.api.clients;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -68,20 +67,4 @@ public interface CoinbaseAuthFeignClient extends CoinbaseAuthClient
     String clientSecret, //
     @RequestParam("refresh_token")
     String refreshToken);
-
-
-  @Override
-  @GetMapping(value = "/oauth2/auth", //
-      consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-  public String requestAccess(//
-    @RequestParam("response_type")
-    String responseType, //
-    @RequestParam("client_id")
-    String clientId,
-    @RequestParam(name = "redirect_uri", required = false)
-    String redirectUri,
-    @RequestParam(name = "state", required = false)
-    String state,
-    @RequestParam(name = "scope", required = false)
-    String scope);
 }
