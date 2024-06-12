@@ -122,7 +122,7 @@ public interface CoinbaseClient
    */
   ProductResponse getProducts(
     String authorization,
-    int limit,
+    Integer limit,
     String startingAfter,
     Integer offset,
     String productType,

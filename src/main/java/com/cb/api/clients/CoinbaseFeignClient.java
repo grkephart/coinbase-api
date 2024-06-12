@@ -143,7 +143,7 @@ public interface CoinbaseFeignClient extends CoinbaseClient
     @RequestHeader("Authorization")
     String authorization,
     @RequestParam("limit")
-    int limit,
+    Integer limit,
     @RequestParam("starting_after")
     String startingAfter,
     @RequestParam("offset")
