@@ -9,9 +9,9 @@ import java.time.Instant;
 import com.cb.api.dto.Account;
 import com.cb.api.dto.AccountResponse;
 import com.cb.api.dto.ContractExpiryType;
-import com.cb.api.dto.MarginType;
+import com.cb.api.dto.CreateOrderResponse;
+import com.cb.api.dto.NewOrder;
 import com.cb.api.dto.Order;
-import com.cb.api.dto.OrderConfiguration;
 import com.cb.api.dto.OrderPlacementSource;
 import com.cb.api.dto.OrderStatus;
 import com.cb.api.dto.OrderType;
@@ -45,16 +45,9 @@ public interface CoinbaseClient
    * @param marginType Possible values: [ISOLATED, CROSS]
    * @param retailPortfolioId Retail portfolio uuid, to associate this order with a retail portfolio
    */
-  public void createOrder(
+  CreateOrderResponse createOrder(
     String authorization,
-    String clientOrderId,
-    String productId,
-    Side side, 
-    OrderConfiguration orderConfiguration,
-    String selfTradePreventionId,
-    String leverage,
-    MarginType marginType,
-    String retailPortfolioId);
+    NewOrder order);
 
 
   /**

@@ -14,8 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  */
 @SuppressWarnings("serial")
-public class Order implements Serializable
+public class Order extends NewOrder implements Serializable
 {
+
   /**
    * The average of all prices of fills for this order
    */
@@ -26,22 +27,10 @@ public class Order implements Serializable
   private String               cancelMessage;
 
   /**
-   * Client specified ID of order.
-   */
-  @JsonProperty("client_order_id")
-  private String               clientOrderId;
-
-  /**
    * The percent of total order amount that has been filled
    */
   @JsonProperty("completion_percentage")
   private String               completionPercentage;
-
-  /**
-   * 
-   */
-  @JsonProperty("order_configuration")
-  private OrderConfiguration   configuration;
 
   /**
    * Timestamp for when the order was created
@@ -79,12 +68,6 @@ public class Order implements Serializable
   @JsonProperty("last_fill_time")
   private Instant              lastFillTime;
 
-  @JsonProperty("leverage")
-  private String               leverage;
-
-  @JsonProperty("margin_type")
-  private MarginType           marginType;
-
   /**
    * Number of fills that have been posted for this order
    */
@@ -106,7 +89,7 @@ public class Order implements Serializable
   /**
    * Possible values: [UNKNOWN_ORDER_TYPE, MARKET, LIMIT, STOP, STOP_LIMIT, BRACKET]
    */
-  @JsonProperty("order_type")
+  @JsonProperty("")
   private OrderType            orderType;
 
   /**
@@ -123,18 +106,6 @@ public class Order implements Serializable
   private boolean              pendingCancel;
 
   /**
-   * The product this order was created for e.g. 'BTC-USD'
-   */
-  @JsonProperty("product_id")
-  private String               productId;
-
-  /**
-   * Possible values: [SPOT, FUTURE]
-   */
-  @JsonProperty("product_type")
-  private ProductType          productType;
-
-  /**
    *  Message stating why the order was rejected.
    */
   @JsonProperty("reject_message")
@@ -146,23 +117,11 @@ public class Order implements Serializable
   @JsonProperty("reject_reason")
   private RejectReason         rejectReason;
 
-  @JsonProperty("retail_portfolio_id")
-  private String               retailPortfolioId;
-
-  @JsonProperty("self_trade_prevention_id")
-  private String               selfTradePreventionId;
-
   /**
    *  True if the order is fully filled, false otherwise.
    */
   @JsonProperty("settled")
   private Boolean              settled;
-
-  /**
-   * Possible values: [BUY, SELL]
-   */
-  @JsonProperty("side")
-  private Side            side;
 
   /**
    * Whether the order size includes fees
@@ -214,6 +173,15 @@ public class Order implements Serializable
   private String               userId;
 
   /**
+   * 
+   */
+  public Order()
+  {
+
+  }
+
+
+  /**
    * @return the averageFilledPrice
    */
   public String getAverageFilledPrice()
@@ -232,29 +200,11 @@ public class Order implements Serializable
 
 
   /**
-   * @return the clientOrderId
-   */
-  public String getClientOrderId()
-  {
-    return clientOrderId;
-  }
-
-
-  /**
    * @return the completionPercentage
    */
   public String getCompletionPercentage()
   {
     return completionPercentage;
-  }
-
-
-  /**
-   * @return the configuration
-   */
-  public OrderConfiguration getConfiguration()
-  {
-    return configuration;
   }
 
 
@@ -304,24 +254,6 @@ public class Order implements Serializable
 
 
   /**
-   * @return the leverage
-   */
-  public String getLeverage()
-  {
-    return leverage;
-  }
-
-
-  /**
-   * @return the marginType
-   */
-  public MarginType getMarginType()
-  {
-    return marginType;
-  }
-
-
-  /**
    * @return the numberOfFills
    */
   public String getNumberOfFills()
@@ -358,24 +290,6 @@ public class Order implements Serializable
 
 
   /**
-   * @return the productId
-   */
-  public String getProductId()
-  {
-    return productId;
-  }
-
-
-  /**
-   * @return the productType
-   */
-  public ProductType getProductType()
-  {
-    return productType;
-  }
-
-
-  /**
    * @return the rejectMessage
    */
   public String getRejectMessage()
@@ -394,38 +308,11 @@ public class Order implements Serializable
 
 
   /**
-   * @return the retailPortfolioId
-   */
-  public String getRetailPortfolioId()
-  {
-    return retailPortfolioId;
-  }
-
-
-  /**
-   * @return the selfTradePreventionId
-   */
-  public String getSelfTradePreventionId()
-  {
-    return selfTradePreventionId;
-  }
-
-
-  /**
    * @return the settled
    */
   public Boolean getSettled()
   {
     return settled;
-  }
-
-
-  /**
-   * @return the side
-   */
-  public Side getSide()
-  {
-    return side;
   }
 
 
@@ -549,32 +436,12 @@ public class Order implements Serializable
 
 
   /**
-   * @param clientOrderId the clientOrderId to set
-   */
-  public void setClientOrderId(
-    String clientOrderId)
-  {
-    this.clientOrderId = clientOrderId;
-  }
-
-
-  /**
    * @param completionPercentage the completionPercentage to set
    */
   public void setCompletionPercentage(
     String completionPercentage)
   {
     this.completionPercentage = completionPercentage;
-  }
-
-
-  /**
-   * @param configuration the configuration to set
-   */
-  public void setConfiguration(
-    OrderConfiguration configuration)
-  {
-    this.configuration = configuration;
   }
 
 
@@ -629,32 +496,12 @@ public class Order implements Serializable
 
 
   /**
-   * @param leverage the leverage to set
-   */
-  public void setLeverage(
-    String leverage)
-  {
-    this.leverage = leverage;
-  }
-
-
-  /**
    * @param isLiquidation the isLiquidation to set
    */
   public void setLiquidation(
     boolean isLiquidation)
   {
     this.isLiquidation = isLiquidation;
-  }
-
-
-  /**
-   * @param marginType the marginType to set
-   */
-  public void setMarginType(
-    MarginType marginType)
-  {
-    this.marginType = marginType;
   }
 
 
@@ -719,26 +566,6 @@ public class Order implements Serializable
 
 
   /**
-   * @param productId the productId to set
-   */
-  public void setProductId(
-    String productId)
-  {
-    this.productId = productId;
-  }
-
-
-  /**
-   * @param productType the productType to set
-   */
-  public void setProductType(
-    ProductType productType)
-  {
-    this.productType = productType;
-  }
-
-
-  /**
    * @param rejectMessage the rejectMessage to set
    */
   public void setRejectMessage(
@@ -759,42 +586,12 @@ public class Order implements Serializable
 
 
   /**
-   * @param retailPortfolioId the retailPortfolioId to set
-   */
-  public void setRetailPortfolioId(
-    String retailPortfolioId)
-  {
-    this.retailPortfolioId = retailPortfolioId;
-  }
-
-
-  /**
-   * @param selfTradePreventionId the selfTradePreventionId to set
-   */
-  public void setSelfTradePreventionId(
-    String selfTradePreventionId)
-  {
-    this.selfTradePreventionId = selfTradePreventionId;
-  }
-
-
-  /**
    * @param settled the settled to set
    */
   public void setSettled(
     Boolean settled)
   {
     this.settled = settled;
-  }
-
-
-  /**
-   * @param side the side to set
-   */
-  public void setSide(
-    Side side)
-  {
-    this.side = side;
   }
 
 

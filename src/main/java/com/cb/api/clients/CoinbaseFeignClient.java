@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.cb.api.dto.Account;
 import com.cb.api.dto.AccountResponse;
 import com.cb.api.dto.ContractExpiryType;
-import com.cb.api.dto.MarginType;
+import com.cb.api.dto.CreateOrderResponse;
+import com.cb.api.dto.NewOrder;
 import com.cb.api.dto.Order;
-import com.cb.api.dto.OrderConfiguration;
 import com.cb.api.dto.OrderPlacementSource;
 import com.cb.api.dto.OrderStatus;
 import com.cb.api.dto.OrderType;
@@ -40,29 +40,14 @@ public interface CoinbaseFeignClient extends CoinbaseClient
 {
 
   /**
-   *
+   * Create an order with a specified product_id (asset-pair), side (buy/sell), etc.
    */
   @PostMapping("orders")
   @Override
-  void createOrder(
+  CreateOrderResponse createOrder(
     @RequestHeader("Authorization")
     String authorization,
-    @RequestParam("client_order_id")
-    String clientOrderId,
-    @RequestParam("product_id")
-    String productId,
-    @RequestParam("side")
-    Side side,
-    @RequestParam("order_configuration")
-    OrderConfiguration orderConfiguration,
-    @RequestParam("self_trade_prevention_id")
-    String selfTradePreventionId,
-    @RequestParam("leverage")
-    String leverage,
-    @RequestParam("margin_type")
-    MarginType marginType,
-    @RequestParam("retail_portfolio_id")
-    String retailPortfolioId);
+    NewOrder order);
 
 
   /**
