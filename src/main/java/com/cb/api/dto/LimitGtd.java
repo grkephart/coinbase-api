@@ -6,6 +6,8 @@ package com.cb.api.dto;
 
 import java.io.Serializable;
 
+import org.springframework.util.StringUtils;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -60,9 +62,9 @@ public class LimitGtd implements Serializable
   public LimitGtd(String baseSize, String endTime, String limitPrice, boolean postOnly)
   {
     super();
-    this.baseSize = baseSize;
+    this.baseSize = StringUtils.hasText(baseSize) ? baseSize : null;
+    this.limitPrice = StringUtils.hasText(limitPrice) ? limitPrice : null;
     this.endTime = endTime;
-    this.limitPrice = limitPrice;
     this.postOnly = postOnly;
   }
 

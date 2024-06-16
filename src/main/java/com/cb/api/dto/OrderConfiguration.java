@@ -51,35 +51,6 @@ public class OrderConfiguration implements Serializable
 
 
   /**
-   * @param limitFok
-   * @param limitGtc
-   * @param limitGtd
-   * @param marketIoc
-   * @param sorLimitIoc
-   * @param stopLimitGtc
-   * @param stopLimitGtd
-   * @param triggerBracketGtc
-   * @param triggerBracketGtd
-   */
-  public OrderConfiguration(LimitFok limitFok, LimitGtc limitGtc, LimitGtd limitGtd,
-                            MarketIoc marketIoc, SorLimitIoc sorLimitIoc, StopLimitGtc stopLimitGtc,
-                            StopLimitGtd stopLimitGtd, TriggerBracketGtc triggerBracketGtc,
-                            TriggerBracketGtd triggerBracketGtd)
-  {
-    super();
-    this.limitFok = limitFok;
-    this.limitGtc = limitGtc;
-    this.limitGtd = limitGtd;
-    this.marketIoc = marketIoc;
-    this.sorLimitIoc = sorLimitIoc;
-    this.stopLimitGtc = stopLimitGtc;
-    this.stopLimitGtd = stopLimitGtd;
-    this.triggerBracketGtc = triggerBracketGtc;
-    this.triggerBracketGtd = triggerBracketGtd;
-  }
-
-
-  /**
    * @return the limitFok
    */
   public LimitFok getLimitFok()
@@ -148,6 +119,15 @@ public class OrderConfiguration implements Serializable
   public TriggerBracketGtc getTriggerBracketGtc()
   {
     return triggerBracketGtc;
+  }
+
+
+  /**
+   * @return the triggerBracketGtd
+   */
+  public TriggerBracketGtd getTriggerBracketGtd()
+  {
+    return triggerBracketGtd;
   }
 
 
@@ -228,6 +208,16 @@ public class OrderConfiguration implements Serializable
     TriggerBracketGtc triggerBracketGtc)
   {
     this.triggerBracketGtc = triggerBracketGtc;
+  }
+
+
+  /**
+   * @param triggerBracketGtd the triggerBracketGtd to set
+   */
+  public void setTriggerBracketGtd(
+    TriggerBracketGtd triggerBracketGtd)
+  {
+    this.triggerBracketGtd = triggerBracketGtd;
   }
 
 }

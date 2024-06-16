@@ -6,6 +6,8 @@ package com.cb.api.dto;
 
 import java.io.Serializable;
 
+import org.springframework.util.StringUtils;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -43,8 +45,8 @@ public class SorLimitIoc implements Serializable
   public SorLimitIoc(String baseSize, String limitPrice)
   {
     super();
-    this.baseSize = baseSize;
-    this.limitPrice = limitPrice;
+    this.baseSize = StringUtils.hasText(baseSize) ? baseSize : null;
+    this.limitPrice = StringUtils.hasText(limitPrice) ? limitPrice : null;
   }
 
 

@@ -15,13 +15,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @SuppressWarnings("serial")
 public class NewOrder implements Serializable
 {
-
   /**
    * Client specified ID of order.
    */
   @JsonProperty("client_order_id")
   private String             clientOrderId;
-
   /**
    * 
    */
@@ -39,12 +37,6 @@ public class NewOrder implements Serializable
    */
   @JsonProperty("product_id")
   private String             productId;
-
-  /**
-   * Possible values: [SPOT, FUTURE]
-   */
-  @JsonProperty("product_type")
-  private ProductType        productType;
 
   @JsonProperty("retail_portfolio_id")
   private String             retailPortfolioId;
@@ -138,15 +130,6 @@ public class NewOrder implements Serializable
 
 
   /**
-   * @return the productType
-   */
-  public ProductType getProductType()
-  {
-    return productType;
-  }
-
-
-  /**
    * @return the retailPortfolioId
    */
   public String getRetailPortfolioId()
@@ -220,16 +203,6 @@ public class NewOrder implements Serializable
     String productId)
   {
     this.productId = productId;
-  }
-
-
-  /**
-   * @param productType the productType to set
-   */
-  public void setProductType(
-    ProductType productType)
-  {
-    this.productType = productType;
   }
 
 

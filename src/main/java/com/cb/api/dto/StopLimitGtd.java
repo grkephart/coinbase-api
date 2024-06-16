@@ -6,6 +6,8 @@ package com.cb.api.dto;
 
 import java.io.Serializable;
 
+import org.springframework.util.StringUtils;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -69,11 +71,11 @@ public class StopLimitGtd implements Serializable
                       StopDirection stopDirection, String stopPrice)
   {
     super();
-    this.baseSize = baseSize;
+    this.baseSize = StringUtils.hasText(baseSize) ? baseSize : null;
+    this.limitPrice = StringUtils.hasText(limitPrice) ? limitPrice : null;
     this.endTime = endTime;
-    this.limitPrice = limitPrice;
     this.stopDirection = stopDirection;
-    this.stopPrice = stopPrice;
+    this.stopPrice = StringUtils.hasText(stopPrice) ? stopPrice : null;
   }
 
 

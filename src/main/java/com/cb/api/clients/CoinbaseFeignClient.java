@@ -35,7 +35,7 @@ import com.cb.api.dto.Side;
  * Contains the Advanced Trade Endpoints.
  * Advanced Trade endpoint URL: https://api.coinbase.com/api/v3/brokerage/{resource}
  */
-@FeignClient(value = "coinbaseService", url = "https://api.coinbase.com/api/v3/brokerage/")
+@FeignClient(value = "coinbaseService", url = "${coinbase.service.url}")
 public interface CoinbaseFeignClient extends CoinbaseClient
 {
 

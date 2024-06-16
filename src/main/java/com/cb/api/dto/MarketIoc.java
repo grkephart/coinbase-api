@@ -4,6 +4,8 @@
 package com.cb.api.dto;
 
 
+import org.springframework.util.StringUtils;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -40,8 +42,8 @@ public class MarketIoc
   public MarketIoc(String baseSize, String quoteSize)
   {
     super();
-    this.baseSize = baseSize;
-    this.quoteSize = quoteSize;
+    this.baseSize = StringUtils.hasText(baseSize) ? baseSize : null;
+    this.quoteSize = StringUtils.hasText(quoteSize) ? quoteSize : null;
   }
 
 

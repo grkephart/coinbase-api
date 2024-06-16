@@ -6,6 +6,8 @@ package com.cb.api.dto;
 
 import java.io.Serializable;
 
+import org.springframework.util.StringUtils;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -62,10 +64,10 @@ public class TriggerBracketGtd implements Serializable
                            String stopTriggerPrice)
   {
     super();
-    this.baseSize = baseSize;
+    this.baseSize = StringUtils.hasText(baseSize) ? baseSize : null;
+    this.limitPrice = StringUtils.hasText(limitPrice) ? limitPrice : null;
     this.endTime = endTime;
-    this.limitPrice = limitPrice;
-    this.stopTriggerPrice = stopTriggerPrice;
+    this.stopTriggerPrice = StringUtils.hasText(stopTriggerPrice) ? stopTriggerPrice : null;
   }
 
 

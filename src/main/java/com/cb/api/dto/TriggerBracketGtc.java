@@ -6,6 +6,8 @@ package com.cb.api.dto;
 
 import java.io.Serializable;
 
+import org.springframework.util.StringUtils;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -53,9 +55,9 @@ public class TriggerBracketGtc implements Serializable
   public TriggerBracketGtc(String baseSize, String limitPrice, String stopTriggerPrice)
   {
     super();
-    this.baseSize = baseSize;
-    this.limitPrice = limitPrice;
-    this.stopTriggerPrice = stopTriggerPrice;
+    this.baseSize = StringUtils.hasText(baseSize) ? baseSize : null;
+    this.limitPrice = StringUtils.hasText(limitPrice) ? limitPrice : null;
+    this.stopTriggerPrice = StringUtils.hasText(stopTriggerPrice) ? stopTriggerPrice : null;
   }
 
 

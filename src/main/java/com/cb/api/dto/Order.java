@@ -106,6 +106,12 @@ public class Order extends NewOrder implements Serializable
   private boolean              pendingCancel;
 
   /**
+   * Possible values: [SPOT, FUTURE]
+   */
+  @JsonProperty("product_type")
+  private ProductType          productType;
+
+  /**
    *  Message stating why the order was rejected.
    */
   @JsonProperty("reject_message")
@@ -286,6 +292,15 @@ public class Order extends NewOrder implements Serializable
   public OrderType getOrderType()
   {
     return orderType;
+  }
+
+
+  /**
+   * @return the productType
+   */
+  public ProductType getProductType()
+  {
+    return productType;
   }
 
 
@@ -562,6 +577,16 @@ public class Order extends NewOrder implements Serializable
     boolean pendingCancel)
   {
     this.pendingCancel = pendingCancel;
+  }
+
+
+  /**
+   * @param productType the productType to set
+   */
+  public void setProductType(
+    ProductType productType)
+  {
+    this.productType = productType;
   }
 
 
