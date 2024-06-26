@@ -6,6 +6,7 @@ package com.cb.api.dto.auth;
 
 import java.time.Instant;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -20,14 +21,14 @@ public class AccessToken
   public static final int MINUTES_30 = 1800;
   @JsonProperty("access_token")
   private String          accessToken;
-  @JsonProperty("expires_in")
+  @JsonIgnore
   private Instant         expirationInstant;
-  @JsonProperty("average_filled_price")
+  @JsonProperty("expires_in")
   private int             expiresIn;
   @JsonProperty("refresh_token")
-  private String          refreshToken;
+  private String          refreshToken; // TODO how do we use this?
   @JsonProperty("token_type")
-  private String          tokenType;
+  private String          tokenType; // TODO what is this? Is it useful?
 
   /**
    * 

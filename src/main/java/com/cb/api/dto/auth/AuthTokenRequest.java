@@ -15,10 +15,27 @@ public class AuthTokenRequest
 {
   @JsonProperty("client_id")
   private String clientId;
+
   @JsonProperty("client_secret")
   private String clientSecret;
+
+  @JsonProperty("code")
+  private String code;
+
   @JsonProperty("grant_type")
   private String grantType;
+
+  @JsonProperty("redirect_uri")
+  private String redirectUri;
+
+  @JsonProperty("response_type")
+  private String responseType;
+
+  @JsonProperty("scope")
+  private String scope;
+
+  @JsonProperty("state")
+  private String state;
 
   /**
    * 
@@ -29,23 +46,55 @@ public class AuthTokenRequest
 
 
   /**
-   * @param grant_type
-   * @param client_id
-   * @param client_secret
+   * @param grantType
+   * @param code
+   * @param clientId
+   * @param clientSecret
+   * @param redirectUri
    */
-  public AuthTokenRequest(String grant_type, String client_id, String client_secret)
+  public AuthTokenRequest(String grantType, String code, String clientId, String clientSecret,
+                          String redirectUri)
   {
     super();
-    this.grantType = grant_type;
-    this.clientId = client_id;
-    this.clientSecret = client_secret;
+    this.grantType = grantType;
+    this.code = code;
+    this.clientId = clientId;
+    this.clientSecret = clientSecret;
+    this.redirectUri = redirectUri;
+  }
+
+
+  /**
+   * For use with AuthTokenRequestDeserializer.
+   * 
+   * @param clientId
+   * @param clientSecret
+   * @param code
+   * @param grantType
+   * @param redirectUri
+   * @param responseType
+   * @param scope
+   * @param state
+   */
+  public AuthTokenRequest(String clientId, String clientSecret, String code, String grantType,
+                          String redirectUri, String responseType, String scope, String state)
+  {
+    super();
+    this.clientId = clientId;
+    this.clientSecret = clientSecret;
+    this.code = code;
+    this.grantType = grantType;
+    this.redirectUri = redirectUri;
+    this.responseType = responseType;
+    this.scope = scope;
+    this.state = state;
   }
 
 
   /**
    * @return the clientId
    */
-  public String getClient_id()
+  public String getClientId()
   {
     return clientId;
   }
@@ -54,48 +103,143 @@ public class AuthTokenRequest
   /**
    * @return the clientSecret
    */
-  public String getClient_secret()
+  public String getClientSecret()
   {
     return clientSecret;
   }
 
 
   /**
+   * @return the code
+   */
+  public String getCode()
+  {
+    return code;
+  }
+
+
+  /**
    * @return the grantType
    */
-  public String getGrant_type()
+  public String getGrantType()
   {
     return grantType;
   }
 
 
   /**
-   * @param client_id the client_id to set
+   * @return the redirectUri
    */
-  public void setClient_id(
-    String client_id)
+  public String getRedirectUri()
   {
-    this.clientId = client_id;
+    return redirectUri;
   }
 
 
   /**
-   * @param client_secret the client_secret to set
+   * @return the responseType
    */
-  public void setClient_secret(
-    String client_secret)
+  public String getResponseType()
   {
-    this.clientSecret = client_secret;
+    return responseType;
   }
 
 
   /**
-   * @param grant_type the grant_type to set
+   * @return the scope
    */
-  public void setGrant_type(
-    String grant_type)
+  public String getScope()
   {
-    this.grantType = grant_type;
+    return scope;
+  }
+
+
+  /**
+   * @return the state
+   */
+  public String getState()
+  {
+    return state;
+  }
+
+
+  /**
+   * @param clientId the clientId to set
+   */
+  public void setClientId(
+    String clientId)
+  {
+    this.clientId = clientId;
+  }
+
+
+  /**
+   * @param clientSecret the clientSecret to set
+   */
+  public void setClientSecret(
+    String clientSecret)
+  {
+    this.clientSecret = clientSecret;
+  }
+
+
+  /**
+   * @param code the code to set
+   */
+  public void setCode(
+    String code)
+  {
+    this.code = code;
+  }
+
+
+  /**
+   * @param grantType the grantType to set
+   */
+  public void setGrantType(
+    String grantType)
+  {
+    this.grantType = grantType;
+  }
+
+
+  /**
+   * @param redirectUri the redirectUri to set
+   */
+  public void setRedirectUri(
+    String redirectUri)
+  {
+    this.redirectUri = redirectUri;
+  }
+
+
+  /**
+   * @param responseType the responseType to set
+   */
+  public void setResponseType(
+    String responseType)
+  {
+    this.responseType = responseType;
+  }
+
+
+  /**
+   * @param scope the scope to set
+   */
+  public void setScope(
+    String scope)
+  {
+    this.scope = scope;
+  }
+
+
+  /**
+   * @param state the state to set
+   */
+  public void setState(
+    String state)
+  {
+    this.state = state;
   }
 
 }
