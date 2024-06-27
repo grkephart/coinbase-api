@@ -28,6 +28,9 @@ public class AuthTokenRequest
   @JsonProperty("redirect_uri")
   private String redirectUri;
 
+  @JsonProperty("refresh_token")
+  private String refreshToken;
+
   @JsonProperty("response_type")
   private String responseType;
 
@@ -46,6 +49,8 @@ public class AuthTokenRequest
 
 
   /**
+   * For getToken when there's no current access token.
+   * 
    * @param grantType
    * @param code
    * @param clientId
@@ -73,11 +78,12 @@ public class AuthTokenRequest
    * @param grantType
    * @param redirectUri
    * @param responseType
+   * @param refreshToken
    * @param scope
    * @param state
    */
   public AuthTokenRequest(String clientId, String clientSecret, String code, String grantType,
-                          String redirectUri, String responseType, String scope, String state)
+                          String redirectUri, String responseType, String refreshToken, String scope, String state)
   {
     super();
     this.clientId = clientId;
@@ -86,8 +92,27 @@ public class AuthTokenRequest
     this.grantType = grantType;
     this.redirectUri = redirectUri;
     this.responseType = responseType;
+    this.refreshToken = refreshToken;
     this.scope = scope;
     this.state = state;
+  }
+
+
+  /**
+   * For refresh token.
+   * 
+   * @param grantType
+   * @param clientId
+   * @param clientSecret
+   * @param refreshToken
+   */
+  public AuthTokenRequest(String grantType, String clientId, String clientSecret,
+                          String refreshToken)
+  {
+    this.grantType = grantType;
+    this.clientId = clientId;
+    this.clientSecret = clientSecret;
+    this.refreshToken = refreshToken;
   }
 
 

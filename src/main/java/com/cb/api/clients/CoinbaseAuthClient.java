@@ -20,9 +20,10 @@ import com.cb.api.dto.auth.AuthTokenRequest;
 @FeignClient(value = "coinbaseAuthClient", url = "https://login.coinbase.com/oauth2")
 public interface CoinbaseAuthClient
 {
-  public static final String APP_REQUEST_URI = "urn:ietf:wg:oauth:2.0:oob";
-  public static final String GRANT_TYPE      = "authorization_code";
-  public static final String RESPONSE_TYPE   = "code";
+  public static final String APP_REQUEST_URI    = "urn:ietf:wg:oauth:2.0:oob";
+  public static final String GRANT_TYPE         = "authorization_code";
+  public static final String REFRESH_GRANT_TYPE = "refresh_token";
+  public static final String RESPONSE_TYPE      = "code";
 
   /**
    * This is for 1. Redirect users to request Coinbase access.

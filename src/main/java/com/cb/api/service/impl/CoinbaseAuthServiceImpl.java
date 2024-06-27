@@ -38,7 +38,7 @@ public class CoinbaseAuthServiceImpl implements CoinbaseAuthService
    */
   public AccessToken getAccessToken()
   {
-    if (this.accessToken == null || this.accessToken.isExpired())
+    if (this.accessToken == null)
     {
       String page = this.client.getAuth(CoinbaseAuthClient.RESPONSE_TYPE, this.clientId,
         CoinbaseAuthClient.APP_REQUEST_URI, this.state, this.scope);
@@ -53,8 +53,16 @@ public class CoinbaseAuthServiceImpl implements CoinbaseAuthService
         this.accessToken = this.client.getToken(authTokenRequest);
       }
     }
+    else if (this.accessToken.isExpired())
+    {
+      AuthTokenRequest authTokenRequest = new AuthTokenRequest(
+          CoinbaseAuthClient.REFRESH_GRANT_TYPE, this.clientId, this.clientSecret,
+          this.accessToken.getRefreshToken());
 
-    return accessToken;
+      this.accessToken = this.client.getToken(authTokenRequest);
+    }
+
+    return this.accessToken;
   }
 
 
