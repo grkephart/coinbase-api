@@ -24,13 +24,13 @@ public class CoinbaseAuthServiceImpl implements CoinbaseAuthService
   private AccessToken        accessToken;
   @Autowired
   private CoinbaseAuthClient client;
-  @Value("${spring.security.oauth2.client.registration.coinbase.client-id}")
+  @Value("${client-id}")
   private String             clientId;
-  @Value("${spring.security.oauth2.client.registration.coinbase.client-secret}")
+  @Value("${client-secret}")
   private String             clientSecret;
-  @Value("${spring.security.oauth2.client.registration.coinbase.scope:#{null}}")
+  @Value("${scope:#{null}}")
   private String             scope;
-  @Value("${spring.security.oauth2.client.registration.coinbase.state:#{null}}")
+  @Value("${state:#{null}}")
   private String             state;
 
   /**
