@@ -13,20 +13,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.cb.api.dto.Account;
-import com.cb.api.dto.AccountResponse;
-import com.cb.api.dto.ContractExpiryType;
-import com.cb.api.dto.CreateOrderResponse;
-import com.cb.api.dto.NewOrder;
-import com.cb.api.dto.Order;
-import com.cb.api.dto.OrderPlacementSource;
-import com.cb.api.dto.OrderStatus;
-import com.cb.api.dto.OrderType;
-import com.cb.api.dto.Product;
-import com.cb.api.dto.ProductCandleResponse;
-import com.cb.api.dto.ProductResponse;
-import com.cb.api.dto.ProductType;
-import com.cb.api.dto.Side;
+import com.cb.api.models.Account;
+import com.cb.api.models.AccountResponse;
+import com.cb.api.models.ContractExpiryType;
+import com.cb.api.models.CreateOrderResponse;
+import com.cb.api.models.NewOrder;
+import com.cb.api.models.Order;
+import com.cb.api.models.OrderPlacementSource;
+import com.cb.api.models.OrderStatus;
+import com.cb.api.models.OrderType;
+import com.cb.api.models.Product;
+import com.cb.api.models.ProductCandleResponse;
+import com.cb.api.models.ProductResponse;
+import com.cb.api.models.ProductType;
+import com.cb.api.models.Side;
 
 
 /**
@@ -90,7 +90,7 @@ public interface CoinbaseFeignClient extends CoinbaseClient
    * Get rates for a single product by product ID, grouped in buckets.
    * 
    * @param authorization
-   * @param productId The trading pair.
+   * @param productId The trading pair (e.g. 'BTC-USD').
    * @param start Timestamp for starting range of aggregations, in UNIX time.
    * @param end Timestamp for ending range of aggregations, in UNIX time.
    * @param granularity The time slice value for each candle.

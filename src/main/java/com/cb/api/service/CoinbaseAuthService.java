@@ -3,7 +3,7 @@
  */
 package com.cb.api.service;
 
-import com.cb.api.dto.auth.AccessToken;
+import com.cb.api.models.auth.AccessToken;
 
 /**
  * This is for your app to get authorized by Coinbase. No users involved.

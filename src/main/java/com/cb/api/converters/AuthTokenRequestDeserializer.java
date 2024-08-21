@@ -6,7 +6,7 @@ package com.cb.api.converters;
 
 import java.io.IOException;
 
-import com.cb.api.dto.auth.AuthTokenRequest;
+import com.cb.api.models.auth.AuthTokenRequest;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;

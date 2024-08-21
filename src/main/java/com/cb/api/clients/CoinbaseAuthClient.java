@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.cb.api.dto.auth.AccessToken;
-import com.cb.api.dto.auth.AuthTokenRequest;
+import com.cb.api.models.auth.AccessToken;
+import com.cb.api.models.auth.AuthTokenRequest;
 
 
 /**

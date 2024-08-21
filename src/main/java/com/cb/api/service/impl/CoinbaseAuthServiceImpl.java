@@ -10,8 +10,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.cb.api.clients.CoinbaseAuthClient;
-import com.cb.api.dto.auth.AccessToken;
-import com.cb.api.dto.auth.AuthTokenRequest;
+import com.cb.api.models.auth.AccessToken;
+import com.cb.api.models.auth.AuthTokenRequest;
 import com.cb.api.service.CoinbaseAuthService;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -57,8 +57,8 @@ public class CoinbaseAuthServiceImpl implements CoinbaseAuthService
 
       if (state == null || state.equals(newState))
       {
-        AuthTokenRequest authTokenRequest = new AuthTokenRequest(CoinbaseAuthClient.GRANT_TYPE,
-            code, clientId, clientSecret, CoinbaseAuthClient.APP_REQUEST_URI);
+        AuthTokenRequest authTokenRequest = new AuthTokenRequest(clientId, clientSecret, code, CoinbaseAuthClient.GRANT_TYPE,
+            CoinbaseAuthClient.APP_REQUEST_URI, CoinbaseAuthClient.RESPONSE_TYPE, scope, state);
 
         this.accessToken = this.client.getToken(authTokenRequest);
       }

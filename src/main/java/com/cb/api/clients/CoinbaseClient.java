@@ -6,20 +6,20 @@ package com.cb.api.clients;
 
 import java.time.Instant;
 
-import com.cb.api.dto.Account;
-import com.cb.api.dto.AccountResponse;
-import com.cb.api.dto.ContractExpiryType;
-import com.cb.api.dto.CreateOrderResponse;
-import com.cb.api.dto.NewOrder;
-import com.cb.api.dto.Order;
-import com.cb.api.dto.OrderPlacementSource;
-import com.cb.api.dto.OrderStatus;
-import com.cb.api.dto.OrderType;
-import com.cb.api.dto.Product;
-import com.cb.api.dto.ProductCandleResponse;
-import com.cb.api.dto.ProductResponse;
-import com.cb.api.dto.ProductType;
-import com.cb.api.dto.Side;
+import com.cb.api.models.Account;
+import com.cb.api.models.AccountResponse;
+import com.cb.api.models.ContractExpiryType;
+import com.cb.api.models.CreateOrderResponse;
+import com.cb.api.models.NewOrder;
+import com.cb.api.models.Order;
+import com.cb.api.models.OrderPlacementSource;
+import com.cb.api.models.OrderStatus;
+import com.cb.api.models.OrderType;
+import com.cb.api.models.Product;
+import com.cb.api.models.ProductCandleResponse;
+import com.cb.api.models.ProductResponse;
+import com.cb.api.models.ProductType;
+import com.cb.api.models.Side;
 
 
 /**

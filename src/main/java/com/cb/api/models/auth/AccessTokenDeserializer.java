@@ -1,11 +1,10 @@
 /**
  * 
  */
-package com.cb.api.converters;
+package com.cb.api.models.auth;
 
 import java.io.IOException;
 
-import com.cb.api.models.auth.AccessToken;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
