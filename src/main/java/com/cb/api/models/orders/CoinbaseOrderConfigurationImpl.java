@@ -20,7 +20,7 @@ public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguratio
   private CoinbaseLimitGtc         limitGtc;
 
   @JsonProperty("limit_limit_gtd")
-  private CoinbaseLimitCoinbaseGtd limitGtd;
+  private CoinbaseLimitGtd limitGtd;
 
   @JsonProperty("market_market_ioc")
   private CoinbaseMarketIoc        marketIoc;
@@ -72,7 +72,7 @@ public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguratio
    * @return the limitGtd
    */
   @Override
-  public CoinbaseLimitCoinbaseGtd getLimitGtd()
+  public CoinbaseLimitGtd getLimitGtd()
   {
     return limitGtd;
   }
@@ -165,7 +165,7 @@ public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguratio
    */
   @Override
   public void setLimitGtd(
-    CoinbaseLimitCoinbaseGtd limitGtd)
+    CoinbaseLimitGtd limitGtd)
   {
     this.limitGtd = limitGtd;
   }

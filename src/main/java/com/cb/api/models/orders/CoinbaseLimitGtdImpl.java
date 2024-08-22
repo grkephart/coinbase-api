@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Good-'til-date limit. 
  */
 @SuppressWarnings("serial")
-public class CoinbaseLimitCoinbaseGtdImpl implements CoinbaseLimitCoinbaseGtd
+public class CoinbaseLimitGtdImpl implements CoinbaseLimitGtd
 {
   /**
    * Amount of base currency to spend on order
@@ -45,7 +45,7 @@ public class CoinbaseLimitCoinbaseGtdImpl implements CoinbaseLimitCoinbaseGtd
   /**
    * 
    */
-  public CoinbaseLimitCoinbaseGtdImpl()
+  public CoinbaseLimitGtdImpl()
   {
     super();
   }
@@ -57,7 +57,7 @@ public class CoinbaseLimitCoinbaseGtdImpl implements CoinbaseLimitCoinbaseGtd
    * @param limitPrice
    * @param postOnly
    */
-  public CoinbaseLimitCoinbaseGtdImpl(String baseSize, String endTime, String limitPrice, boolean postOnly)
+  public CoinbaseLimitGtdImpl(String baseSize, String endTime, String limitPrice, boolean postOnly)
   {
     super();
     this.baseSize = StringUtils.hasText(baseSize) ? baseSize : null;

@@ -22,7 +22,7 @@ public interface CoinbaseOrderConfiguration extends Serializable
   /**
    * @return the limitGtd
    */
-  CoinbaseLimitCoinbaseGtd getLimitGtd();
+  CoinbaseLimitGtd getLimitGtd();
 
 
   /**
@@ -79,7 +79,7 @@ public interface CoinbaseOrderConfiguration extends Serializable
    * @param limitGtd the limitGtd to set
    */
   void setLimitGtd(
-    CoinbaseLimitCoinbaseGtd limitGtd);
+    CoinbaseLimitGtd limitGtd);
 
 
   /**

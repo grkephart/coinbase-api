@@ -2,7 +2,7 @@ package com.cb.api.models.orders;
 
 import java.io.Serializable;
 
-public interface CoinbaseLimitCoinbaseGtd extends Serializable
+public interface CoinbaseLimitGtd extends Serializable
 {
 
   /**
