@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cb.api.models.Account;
 import com.cb.api.models.AccountResponse;
-import com.cb.api.models.ContractExpiryType;
-import com.cb.api.models.CreateOrderResponse;
-import com.cb.api.models.NewOrder;
-import com.cb.api.models.Order;
-import com.cb.api.models.OrderPlacementSource;
-import com.cb.api.models.OrderStatus;
-import com.cb.api.models.OrderType;
-import com.cb.api.models.Product;
-import com.cb.api.models.ProductCandleResponse;
-import com.cb.api.models.ProductResponse;
-import com.cb.api.models.ProductType;
-import com.cb.api.models.Side;
+import com.cb.api.models.orders.CoinbaseNewOrder;
+import com.cb.api.models.orders.CoinbaseOrder;
+import com.cb.api.models.orders.ContractExpiryType;
+import com.cb.api.models.orders.CreateOrderResponse;
+import com.cb.api.models.orders.OrderPlacementSource;
+import com.cb.api.models.orders.OrderStatus;
+import com.cb.api.models.orders.OrderType;
+import com.cb.api.models.orders.Side;
+import com.cb.api.models.products.CoinbaseProductImpl;
+import com.cb.api.models.products.ProductCandleResponse;
+import com.cb.api.models.products.ProductResponse;
+import com.cb.api.models.products.ProductType;
 
 
 /**
@@ -47,7 +47,7 @@ public interface CoinbaseFeignClient extends CoinbaseClient
   CreateOrderResponse createOrder(
     @RequestHeader("Authorization")
     String authorization,
-    NewOrder order);
+    CoinbaseNewOrder order);
 
 
   /**
@@ -64,7 +64,7 @@ public interface CoinbaseFeignClient extends CoinbaseClient
 
   @Override
   @GetMapping("orders/historical/{id}")
-  Order getOrder(
+  CoinbaseOrder getOrder(
     @RequestHeader("Authorization")
     String authorization,
     @PathVariable("order_id")
@@ -79,7 +79,7 @@ public interface CoinbaseFeignClient extends CoinbaseClient
    */
   @Override
   @GetMapping("products/{id}")
-  Product getProduct(
+  CoinbaseProductImpl getProduct(
     @RequestHeader("Authorization")
     String authorization,
     @PathVariable("id")
@@ -164,7 +164,7 @@ public interface CoinbaseFeignClient extends CoinbaseClient
    */
   @Override
   @GetMapping("orders/historical/batch")
-  Order listOrders(
+  CoinbaseOrder listOrders(
     @RequestHeader("Authorization")
     String authorization,
     @RequestParam("product_id")
