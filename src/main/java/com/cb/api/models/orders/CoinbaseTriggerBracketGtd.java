@@ -26,12 +26,6 @@ public interface CoinbaseTriggerBracketGtd extends Serializable
 
 
   /**
-   * @return the stopPrice
-   */
-  String getStopPrice();
-
-
-  /**
    * @return the stopTriggerPrice
    */
   String getStopTriggerPrice();
@@ -56,13 +50,6 @@ public interface CoinbaseTriggerBracketGtd extends Serializable
    */
   void setLimitPrice(
     String limitPrice);
-
-
-  /**
-   * @param stopPrice the stopPrice to set
-   */
-  void setStopPrice(
-    String stopPrice);
 
 
   /**

@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  */
 @SuppressWarnings("serial")
-public class CoinbaseOrderImpl extends CoinbaseNewOrderImpl implements CoinbaseOrder
+public class CoinbaseOrderImpl extends CoinbaseNewOrderImpl implements CoinbaseOrder<CoinbaseOrderConfiguration>
 {
 
   /**

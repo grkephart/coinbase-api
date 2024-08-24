@@ -6,7 +6,7 @@ import java.time.Instant;
 import com.cb.api.models.products.ProductType;
 
 
-public interface CoinbaseOrder extends CoinbaseNewOrder
+public interface CoinbaseOrder<OC extends CoinbaseOrderConfiguration> extends CoinbaseNewOrder<OC>
 {
 
   /**

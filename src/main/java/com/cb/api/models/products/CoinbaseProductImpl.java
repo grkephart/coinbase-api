@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  */
 @SuppressWarnings("serial")
-public class CoinbaseProductImpl implements CoinbaseProduct
+public class CoinbaseProductImpl implements CoinbaseProduct<CoinbaseFcmTradingSessionDetailsImpl, CoinbaseFutureProductDetailsImpl, CoinbasePerpetualDetailsImpl>
 {
   /**
    * CoinbaseProductImpl id for the corresponding unified book.
@@ -83,13 +83,13 @@ public class CoinbaseProductImpl implements CoinbaseProduct
    *  
    */
   @JsonProperty("fcm_trading_session_details")
-  private CoinbaseFcmTradingSessionDetails fcmTradingSessionDetails;
+  private CoinbaseFcmTradingSessionDetailsImpl fcmTradingSessionDetails;
 
   /**
    *
    */
   @JsonProperty("future_product_details")
-  private CoinbaseFutureProductDetails     futureProductDetails;
+  private CoinbaseFutureProductDetailsImpl     futureProductDetails;
 
   /**
    * Whether or not the product is 'new'. Required.
@@ -322,7 +322,7 @@ public class CoinbaseProductImpl implements CoinbaseProduct
    * @return the fcmTradingSessionDetails
    */
   @Override
-  public CoinbaseFcmTradingSessionDetails getFcmTradingSessionDetails()
+  public CoinbaseFcmTradingSessionDetailsImpl getFcmTradingSessionDetails()
   {
     return fcmTradingSessionDetails;
   }
@@ -332,7 +332,7 @@ public class CoinbaseProductImpl implements CoinbaseProduct
    * @return the futureProductDetails
    */
   @Override
-  public CoinbaseFutureProductDetails getFutureProductDetails()
+  public CoinbaseFutureProductDetailsImpl getFutureProductDetails()
   {
     return futureProductDetails;
   }
@@ -701,7 +701,7 @@ public class CoinbaseProductImpl implements CoinbaseProduct
    */
   @Override
   public void setFcmTradingSessionDetails(
-    CoinbaseFcmTradingSessionDetails fcmTradingSessionDetails)
+    CoinbaseFcmTradingSessionDetailsImpl fcmTradingSessionDetails)
   {
     this.fcmTradingSessionDetails = fcmTradingSessionDetails;
   }
@@ -712,7 +712,7 @@ public class CoinbaseProductImpl implements CoinbaseProduct
    */
   @Override
   public void setFutureProductDetails(
-    CoinbaseFutureProductDetails futureProductDetails)
+    CoinbaseFutureProductDetailsImpl futureProductDetails)
   {
     this.futureProductDetails = futureProductDetails;
   }

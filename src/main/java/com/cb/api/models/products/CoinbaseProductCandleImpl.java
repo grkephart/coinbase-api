@@ -19,6 +19,7 @@ public class CoinbaseProductCandleImpl implements CoinbaseProductCandle
    */
   @JsonProperty("close")
   private String close;
+
   /**
    * Highest price during the bucket interval.
    */
@@ -42,13 +43,11 @@ public class CoinbaseProductCandleImpl implements CoinbaseProductCandle
    */
   @JsonProperty("open")
   private String open;
-
   /**
    * Timestamp for bucket start time, in UNIX time.
    */
   @JsonProperty("start")
   private String start;
-
   /**
    *  Volume of trading activity during the bucket interval.
    */
@@ -78,7 +77,6 @@ public class CoinbaseProductCandleImpl implements CoinbaseProductCandle
   }
 
 
-  @Override
   public String getInternalId()
   {
     return this.internalId;
@@ -132,11 +130,22 @@ public class CoinbaseProductCandleImpl implements CoinbaseProductCandle
   /**
    * @param internalId the internalId to set
    */
-  @Override
   public void setInternalId(
     String internalId)
   {
     this.internalId = internalId;
+  }
+
+
+  /**
+   * @param productId
+   * @param granularity
+   */
+  public void setInternalId(
+    String productId,
+    Granularity granularity)
+  {
+    this.internalId = productId + "-" + start + "-" + granularity;
   }
 
 

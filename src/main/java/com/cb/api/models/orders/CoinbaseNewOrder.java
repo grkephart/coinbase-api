@@ -2,7 +2,7 @@ package com.cb.api.models.orders;
 
 import java.io.Serializable;
 
-public interface CoinbaseNewOrder extends Serializable
+public interface CoinbaseNewOrder<OC extends CoinbaseOrderConfiguration> extends Serializable
 {
 
   /**
@@ -14,7 +14,7 @@ public interface CoinbaseNewOrder extends Serializable
   /**
    * @return the configuration
    */
-  CoinbaseOrderConfiguration getConfiguration();
+  OC getConfiguration();
 
 
   /**
@@ -64,7 +64,7 @@ public interface CoinbaseNewOrder extends Serializable
    * @param configuration the configuration to set
    */
   void setConfiguration(
-    CoinbaseOrderConfiguration configuration);
+    OC configuration);
 
 
   /**

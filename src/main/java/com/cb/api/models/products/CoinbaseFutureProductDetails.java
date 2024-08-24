@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.time.Instant;
 
 
-public interface CoinbaseFutureProductDetails extends Serializable
+public interface CoinbaseFutureProductDetails<PD extends CoinbasePerpetualDetails> extends Serializable
 {
 
   /**
@@ -75,7 +75,7 @@ public interface CoinbaseFutureProductDetails extends Serializable
    * @return the perpetualDetails
    */
 
-  CoinbasePerpetualDetails getPerpetualDetails();
+  PD getPerpetualDetails();
 
 
   /**
@@ -169,7 +169,7 @@ public interface CoinbaseFutureProductDetails extends Serializable
    */
 
   void setPerpetualDetails(
-    CoinbasePerpetualDetails perpetualDetails);
+    PD perpetualDetails);
 
 
   /**

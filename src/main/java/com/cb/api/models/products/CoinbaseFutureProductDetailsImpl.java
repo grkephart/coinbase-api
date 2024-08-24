@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  */
 @SuppressWarnings("serial")
-public class CoinbaseFutureProductDetailsImpl implements CoinbaseFutureProductDetails
+public class CoinbaseFutureProductDetailsImpl implements CoinbaseFutureProductDetails<CoinbasePerpetualDetailsImpl>
 {
 
   /**
@@ -74,7 +74,7 @@ public class CoinbaseFutureProductDetailsImpl implements CoinbaseFutureProductDe
   *
   */
   @JsonProperty("perpetual_details")
-  private CoinbasePerpetualDetails perpetualDetails;
+  private CoinbasePerpetualDetailsImpl perpetualDetails;
 
   /**
    * Possible values: [UNKNOWN_RISK_MANAGEMENT_TYPE, MANAGED_BY_FCM, MANAGED_BY_VENUE]
@@ -201,7 +201,7 @@ public class CoinbaseFutureProductDetailsImpl implements CoinbaseFutureProductDe
    */
 
   @Override
-  public CoinbasePerpetualDetails getPerpetualDetails()
+  public CoinbasePerpetualDetailsImpl getPerpetualDetails()
   {
     return perpetualDetails;
   }
@@ -343,7 +343,7 @@ public class CoinbaseFutureProductDetailsImpl implements CoinbaseFutureProductDe
 
   @Override
   public void setPerpetualDetails(
-    CoinbasePerpetualDetails perpetualDetails)
+    CoinbasePerpetualDetailsImpl perpetualDetails)
   {
     this.perpetualDetails = perpetualDetails;
   }

@@ -13,6 +13,12 @@ public interface CoinbaseProductCandle extends Serializable
   String getHigh();
 
 
+  /**
+   * Something Coinbase should provide, but doesn't.
+   * This will be productId + "-" + start + "-" + granularity.
+   * 
+   * @return the candle's internal id
+   */
   String getInternalId();
 
 
@@ -36,11 +42,17 @@ public interface CoinbaseProductCandle extends Serializable
     String high);
 
 
-  /**
-   * @param internalId the internalId to set
-   */
   void setInternalId(
     String internalId);
+
+
+  /**
+   * @param productId
+   * @param granularity
+   */
+  void setInternalId(
+    String productId,
+    Granularity granularity);
 
 
   void setLow(

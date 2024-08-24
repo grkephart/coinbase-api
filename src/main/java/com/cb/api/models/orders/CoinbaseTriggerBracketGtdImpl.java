@@ -59,7 +59,7 @@ public class CoinbaseTriggerBracketGtdImpl implements CoinbaseTriggerBracketGtd
    * @param stopTriggerPrice
    */
   public CoinbaseTriggerBracketGtdImpl(String baseSize, String endTime, String limitPrice,
-                           String stopTriggerPrice)
+                                       String stopTriggerPrice)
   {
     super();
     this.baseSize = StringUtils.hasText(baseSize) ? baseSize : null;
@@ -96,16 +96,6 @@ public class CoinbaseTriggerBracketGtdImpl implements CoinbaseTriggerBracketGtd
   public String getLimitPrice()
   {
     return limitPrice;
-  }
-
-
-  /**
-   * @return the stopPrice
-   */
-  @Override
-  public String getStopPrice()
-  {
-    return stopTriggerPrice;
   }
 
 
@@ -149,17 +139,6 @@ public class CoinbaseTriggerBracketGtdImpl implements CoinbaseTriggerBracketGtd
     String limitPrice)
   {
     this.limitPrice = limitPrice;
-  }
-
-
-  /**
-   * @param stopPrice the stopPrice to set
-   */
-  @Override
-  public void setStopPrice(
-    String stopPrice)
-  {
-    this.stopTriggerPrice = stopPrice;
   }
 
 

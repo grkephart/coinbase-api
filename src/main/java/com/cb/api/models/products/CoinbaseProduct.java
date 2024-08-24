@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * 
  */
-public interface CoinbaseProduct extends Serializable
+public interface CoinbaseProduct<FTSD extends CoinbaseFcmTradingSessionDetails, FPD extends CoinbaseFutureProductDetails<PD>, PD extends CoinbasePerpetualDetails> extends Serializable
 {
 
   /**
@@ -73,14 +73,14 @@ public interface CoinbaseProduct extends Serializable
    * @return the fcmTradingSessionDetails
    */
 
-  CoinbaseFcmTradingSessionDetails getFcmTradingSessionDetails();
+  FTSD getFcmTradingSessionDetails();
 
 
   /**
    * @return the futureProductDetails
    */
 
-  CoinbaseFutureProductDetails getFutureProductDetails();
+  FPD getFutureProductDetails();
 
 
   /**
@@ -341,7 +341,7 @@ public interface CoinbaseProduct extends Serializable
    */
 
   void setFcmTradingSessionDetails(
-    CoinbaseFcmTradingSessionDetails fcmTradingSessionDetails);
+    FTSD fcmTradingSessionDetails);
 
 
   /**
@@ -349,7 +349,7 @@ public interface CoinbaseProduct extends Serializable
    */
 
   void setFutureProductDetails(
-    CoinbaseFutureProductDetails futureProductDetails);
+    FPD futureProductDetails);
 
 
   /**
