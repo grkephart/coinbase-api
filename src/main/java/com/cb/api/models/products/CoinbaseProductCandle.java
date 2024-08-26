@@ -15,6 +15,8 @@ public interface CoinbaseProductCandle extends Serializable
 
   /**
    * Something Coinbase should provide, but doesn't.
+   * It can be used when importing them into your system and you need to
+   * determine if it's a new or existing candle, save or update.
    * This will be productId + "-" + start + "-" + granularity.
    * 
    * @return the candle's internal id
