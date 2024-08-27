@@ -64,12 +64,6 @@ public interface CoinbaseOrder<OC extends CoinbaseOrderConfiguration> extends Co
 
 
   /**
-   * @return the orderId
-   */
-  String getOrderId();
-
-
-  /**
    * @return the orderPlacementSource
    */
   OrderPlacementSource getOrderPlacementSource();
@@ -239,13 +233,6 @@ public interface CoinbaseOrder<OC extends CoinbaseOrderConfiguration> extends Co
    */
   void setNumberOfFills(
     String numberOfFills);
-
-
-  /**
-   * @param orderId the orderId to set
-   */
-  void setOrderId(
-    String orderId);
 
 
   /**

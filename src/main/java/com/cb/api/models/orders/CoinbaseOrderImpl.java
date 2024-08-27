@@ -278,16 +278,6 @@ public class CoinbaseOrderImpl extends CoinbaseNewOrderImpl implements CoinbaseO
 
 
   /**
-   * @return the orderId
-   */
-  @Override
-  public String getOrderId()
-  {
-    return orderId;
-  }
-
-
-  /**
    * @return the orderPlacementSource
    */
   @Override
@@ -566,16 +556,6 @@ public class CoinbaseOrderImpl extends CoinbaseNewOrderImpl implements CoinbaseO
     this.numberOfFills = numberOfFills;
   }
 
-
-  /**
-   * @param orderId the orderId to set
-   */
-  @Override
-  public void setOrderId(
-    String orderId)
-  {
-    this.orderId = orderId;
-  }
 
 
   /**
