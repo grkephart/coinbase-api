@@ -1,44 +1,39 @@
 /**
  * 
  */
-package com.cb.api.models.orders;
+package com.cb.api.models.orders.impl;
 
 
 import org.springframework.util.StringUtils;
 
+import com.cb.api.models.orders.CoinbaseLimitFok;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 /**
- * Good-'til-canceled 
+ * 
  */
 @SuppressWarnings("serial")
-public class CoinbaseLimitGtcImpl implements CoinbaseLimitGtc
+public class CoinbaseLimitFokImpl implements CoinbaseLimitFok
 {
   /**
    * Amount of base currency to spend on order
    */
   @JsonProperty("base_size")
-  private String  baseSize;
+  private String baseSize;
 
   /**
    *  Ceiling price for which the order should get filled.
+   *  FOK orders must be marketable, so this is required to be at most 20% 
+   *  away from mid market.
    */
   @JsonProperty("limit_price")
-  private String  limitPrice;
-
-  /**
-   * The post-only flag indicates that the order should only make liquidity. 
-   * If any part of the order results in taking liquidity, the order will be 
-   * rejected and no part of it will execute.
-   */
-  @JsonProperty("post_only")
-  private boolean postOnly;
+  private String limitPrice;
 
   /**
    * 
    */
-  public CoinbaseLimitGtcImpl()
+  public CoinbaseLimitFokImpl()
   {
     super();
   }
@@ -47,14 +42,12 @@ public class CoinbaseLimitGtcImpl implements CoinbaseLimitGtc
   /**
    * @param baseSize
    * @param limitPrice
-   * @param postOnly
    */
-  public CoinbaseLimitGtcImpl(String baseSize, String limitPrice, boolean postOnly)
+  public CoinbaseLimitFokImpl(String baseSize, String limitPrice)
   {
     super();
     this.baseSize = StringUtils.hasText(baseSize) ? baseSize : null;
     this.limitPrice = StringUtils.hasText(limitPrice) ? limitPrice : null;
-    this.postOnly = postOnly;
   }
 
 
@@ -79,16 +72,6 @@ public class CoinbaseLimitGtcImpl implements CoinbaseLimitGtc
 
 
   /**
-   * @return the postOnly
-   */
-  @Override
-  public boolean isPostOnly()
-  {
-    return postOnly;
-  }
-
-
-  /**
    * @param baseSize the baseSize to set
    */
   @Override
@@ -107,17 +90,6 @@ public class CoinbaseLimitGtcImpl implements CoinbaseLimitGtc
     String limitPrice)
   {
     this.limitPrice = limitPrice;
-  }
-
-
-  /**
-   * @param postOnly the postOnly to set
-   */
-  @Override
-  public void setPostOnly(
-    boolean postOnly)
-  {
-    this.postOnly = postOnly;
   }
 
 }

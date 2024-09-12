@@ -1,9 +1,13 @@
 /**
  * 
  */
-package com.cb.api.models.orders;
+package com.cb.api.models.orders.impl;
 
 
+import com.cb.api.models.orders.CoinbaseNewOrder;
+import com.cb.api.models.orders.CoinbaseOrderConfiguration;
+import com.cb.api.models.orders.MarginType;
+import com.cb.api.models.orders.Side;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -11,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  */
 @SuppressWarnings("serial")
-public class CoinbaseNewOrderImpl implements CoinbaseNewOrder<CoinbaseOrderConfiguration>
+public class CoinbaseNewOrderImpl implements CoinbaseNewOrder
 {
   /**
    * Client specified ID of order.
@@ -22,7 +26,7 @@ public class CoinbaseNewOrderImpl implements CoinbaseNewOrder<CoinbaseOrderConfi
    * 
    */
   @JsonProperty("order_configuration")
-  private CoinbaseOrderConfiguration configuration;
+  private CoinbaseOrderConfigurationImpl configuration;
 
   @JsonProperty("leverage")
   private String             leverage;
@@ -74,7 +78,7 @@ public class CoinbaseNewOrderImpl implements CoinbaseNewOrder<CoinbaseOrderConfi
     this.clientOrderId = clientOrderId;
     this.productId = productInternalId;
     this.side = side;
-    this.configuration = coinbaseOrderConfiguration;
+    this.configuration = (CoinbaseOrderConfigurationImpl)coinbaseOrderConfiguration;
     this.selfTradePreventionId = selfTradePreventionId;
     this.leverage = leverage;
     this.marginType = marginType;
@@ -180,7 +184,7 @@ public class CoinbaseNewOrderImpl implements CoinbaseNewOrder<CoinbaseOrderConfi
   public void setConfiguration(
     CoinbaseOrderConfiguration configuration)
   {
-    this.configuration = configuration;
+    this.configuration = (CoinbaseOrderConfigurationImpl)configuration;
   }
 
 

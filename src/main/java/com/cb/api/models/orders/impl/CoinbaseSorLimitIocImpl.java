@@ -1,13 +1,14 @@
 /**
  * 
  */
-package com.cb.api.models.orders;
+package com.cb.api.models.orders.impl;
 
 
 import java.io.Serializable;
 
 import org.springframework.util.StringUtils;
 
+import com.cb.api.models.orders.CoinbaseSorLimitIoc;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 

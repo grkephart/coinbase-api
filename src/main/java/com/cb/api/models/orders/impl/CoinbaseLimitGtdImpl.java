@@ -1,11 +1,12 @@
 /**
  * 
  */
-package com.cb.api.models.orders;
+package com.cb.api.models.orders.impl;
 
 
 import org.springframework.util.StringUtils;
 
+import com.cb.api.models.orders.CoinbaseLimitGtd;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 

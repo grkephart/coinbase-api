@@ -4,124 +4,123 @@ package com.cb.api.models.orders;
 import java.io.Serializable;
 
 
-public interface CoinbaseOrderConfiguration<LF extends CoinbaseLimitFok, LGC extends CoinbaseLimitGtc, LGD extends CoinbaseLimitGtd, MI extends CoinbaseMarketIoc, SLI extends CoinbaseSorLimitIoc, SLGC extends CoinbaseStopLimitGtc, SLGD extends CoinbaseStopLimitGtd, TBGC extends CoinbaseTriggerBracketGtc, TBGD extends CoinbaseTriggerBracketGtd>
-    extends Serializable
+public interface CoinbaseOrderConfiguration extends Serializable
 {
 
   /**
    * @return the limitFok
    */
-  LF getLimitFok();
+  CoinbaseLimitFok getLimitFok();
 
 
   /**
    * @return the limitGtc
    */
-  LGC getLimitGtc();
+  CoinbaseLimitGtc getLimitGtc();
 
 
   /**
    * @return the limitGtd
    */
-  LGD getLimitGtd();
+  CoinbaseLimitGtd getLimitGtd();
 
 
   /**
    * @return the marketIoc
    */
-  MI getMarketIoc();
+  CoinbaseMarketIoc getMarketIoc();
 
 
   /**
    * @return the sorLimitIoc
    */
-  SLI getSorLimitIoc();
+  CoinbaseSorLimitIoc getSorLimitIoc();
 
 
   /**
    * @return the stopLimitGtc
    */
-  SLGC getStopLimitGtc();
+  CoinbaseStopLimitGtc getStopLimitGtc();
 
 
   /**
    * @return the stopLimitGtd
    */
-  SLGD getStopLimitGtd();
+  CoinbaseStopLimitGtd getStopLimitGtd();
 
 
   /**
    * @return the triggerBracketGtc
    */
-  TBGC getTriggerBracketGtc();
+  CoinbaseTriggerBracketGtc getTriggerBracketGtc();
 
 
   /**
    * @return the triggerBracketGtd
    */
-  TBGD getTriggerBracketGtd();
+  CoinbaseTriggerBracketGtd getTriggerBracketGtd();
 
 
   /**
    * @param limitFok the limitFok to set
    */
   void setLimitFok(
-    LF limitFok);
+    CoinbaseLimitFok limitFok);
 
 
   /**
    * @param limitGtc the limitGtc to set
    */
   void setLimitGtc(
-    LGC limitGtc);
+    CoinbaseLimitGtc limitGtc);
 
 
   /**
    * @param limitGtd the limitGtd to set
    */
   void setLimitGtd(
-    LGD limitGtd);
+    CoinbaseLimitGtd limitGtd);
 
 
   /**
    * @param marketIoc the marketIoc to set
    */
   void setMarketIoc(
-    MI marketIoc);
+    CoinbaseMarketIoc marketIoc);
 
 
   /**
    * @param sorLimitIoc the sorLimitIoc to set
    */
   void setSorLimitIoc(
-    SLI sorLimitIoc);
+    CoinbaseSorLimitIoc sorLimitIoc);
 
 
   /**
    * @param stopLimitGtc the stopLimitGtc to set
    */
   void setStopLimitGtc(
-    SLGC stopLimitGtc);
+    CoinbaseStopLimitGtc stopLimitGtc);
 
 
   /**
    * @param stopLimitGtd the stopLimitGtd to set
    */
   void setStopLimitGtd(
-    SLGD stopLimitGtd);
+    CoinbaseStopLimitGtd stopLimitGtd);
 
 
   /**
    * @param triggerBracketGtc the triggerBracketGtc to set
    */
   void setTriggerBracketGtc(
-    TBGC triggerBracketGtc);
+    CoinbaseTriggerBracketGtc triggerBracketGtc);
 
 
   /**
    * @param triggerBracketGtd the triggerBracketGtd to set
    */
   void setTriggerBracketGtd(
-    TBGD triggerBracketGtd);
+    CoinbaseTriggerBracketGtd triggerBracketGtd);
 
 }

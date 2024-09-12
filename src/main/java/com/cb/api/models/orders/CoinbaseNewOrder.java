@@ -2,40 +2,52 @@ package com.cb.api.models.orders;
 
 import java.io.Serializable;
 
-public interface CoinbaseNewOrder<OC extends CoinbaseOrderConfiguration> extends Serializable
+public interface CoinbaseNewOrder extends Serializable
 {
 
   /**
+   * A unique ID provided for the order (used for identification purposes).
+   * If the ID provided is not unique, the order will not be created and the order corresponding with that ID will be returned instead.
+   *  
    * @return the clientOrderId
    */
   String getClientOrderId();
 
 
   /**
+   * The configuration of the order (e.g. the order type, size, etc).
+   * 
    * @return the configuration
    */
-  OC getConfiguration();
+  CoinbaseOrderConfiguration getConfiguration();
 
 
   /**
+   * The amount of leverage for the order (default is 1.0).
    * @return the leverage
    */
   String getLeverage();
 
 
   /**
+   * Possible values: [CROSS, ISOLATED]
+   * 
    * @return the marginType
    */
   MarginType getMarginType();
 
 
   /**
+   * The trading pair (e.g. 'BTC-USD').
+   * 
    * @return the productId
    */
   String getProductId();
 
 
   /**
+   * (Deprecated) The ID of the portfolio to associate the order with. Only applicable for legacy keys. CDP keys will default to the key's permissioned portfolio.
+   * 
    * @return the retailPortfolioId
    */
   String getRetailPortfolioId();
@@ -48,6 +60,8 @@ public interface CoinbaseNewOrder<OC extends CoinbaseOrderConfiguration> extends
 
 
   /**
+   * Possible values: [BUY, SELL]
+   * 
    * @return the side
    */
   Side getSide();
@@ -64,7 +78,7 @@ public interface CoinbaseNewOrder<OC extends CoinbaseOrderConfiguration> extends
    * @param configuration the configuration to set
    */
   void setConfiguration(
-    OC configuration);
+    CoinbaseOrderConfiguration configuration);
 
 
   /**

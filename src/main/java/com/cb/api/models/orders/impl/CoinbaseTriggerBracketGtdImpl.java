@@ -1,11 +1,12 @@
 /**
  * 
  */
-package com.cb.api.models.orders;
+package com.cb.api.models.orders.impl;
 
 
 import org.springframework.util.StringUtils;
 
+import com.cb.api.models.orders.CoinbaseTriggerBracketGtd;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -13,13 +14,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Good-'til-canceled 
  */
 @SuppressWarnings("serial")
-public class CoinbaseTriggerBracketGtcImpl implements CoinbaseTriggerBracketGtc
+public class CoinbaseTriggerBracketGtdImpl implements CoinbaseTriggerBracketGtd
 {
   /**
    * Amount of base currency to spend on order
    */
   @JsonProperty("base_size")
   private String baseSize;
+
+  /**
+   *  Time at which the order should be cancelled if it's not filled.
+   *  RFC3339 Timestamp.
+   */
+  @JsonProperty("end_time")
+  private String endTime;
 
   /**
    *  Ceiling price for which the order should get filled.
@@ -39,7 +47,7 @@ public class CoinbaseTriggerBracketGtcImpl implements CoinbaseTriggerBracketGtc
   /**
    * 
    */
-  public CoinbaseTriggerBracketGtcImpl()
+  public CoinbaseTriggerBracketGtdImpl()
   {
     super();
   }
@@ -47,14 +55,17 @@ public class CoinbaseTriggerBracketGtcImpl implements CoinbaseTriggerBracketGtc
 
   /**
    * @param baseSize
+   * @param endTime
    * @param limitPrice
    * @param stopTriggerPrice
    */
-  public CoinbaseTriggerBracketGtcImpl(String baseSize, String limitPrice, String stopTriggerPrice)
+  public CoinbaseTriggerBracketGtdImpl(String baseSize, String endTime, String limitPrice,
+                                       String stopTriggerPrice)
   {
     super();
     this.baseSize = StringUtils.hasText(baseSize) ? baseSize : null;
     this.limitPrice = StringUtils.hasText(limitPrice) ? limitPrice : null;
+    this.endTime = endTime;
     this.stopTriggerPrice = StringUtils.hasText(stopTriggerPrice) ? stopTriggerPrice : null;
   }
 
@@ -66,6 +77,16 @@ public class CoinbaseTriggerBracketGtcImpl implements CoinbaseTriggerBracketGtc
   public String getBaseSize()
   {
     return baseSize;
+  }
+
+
+  /**
+   * @return the endTime
+   */
+  @Override
+  public String getEndTime()
+  {
+    return endTime;
   }
 
 
@@ -97,6 +118,17 @@ public class CoinbaseTriggerBracketGtcImpl implements CoinbaseTriggerBracketGtc
     String baseSize)
   {
     this.baseSize = baseSize;
+  }
+
+
+  /**
+   * @param endTime the endTime to set
+   */
+  @Override
+  public void setEndTime(
+    String endTime)
+  {
+    this.endTime = endTime;
   }
 
 

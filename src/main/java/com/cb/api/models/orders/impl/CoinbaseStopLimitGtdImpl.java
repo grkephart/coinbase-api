@@ -1,25 +1,34 @@
 /**
  * 
  */
-package com.cb.api.models.orders;
+package com.cb.api.models.orders.impl;
 
 
 import org.springframework.util.StringUtils;
 
+import com.cb.api.models.orders.CoinbaseStopLimitGtd;
+import com.cb.api.models.orders.StopDirection;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 /**
- * Good-'til-canceled 
+ * Good-'til-date 
  */
 @SuppressWarnings("serial")
-public class CoinbaseStopLimitGtcImpl implements CoinbaseStopLimitGtc
+public class CoinbaseStopLimitGtdImpl implements CoinbaseStopLimitGtd
 {
   /**
    * Amount of base currency to spend on order
    */
   @JsonProperty("base_size")
   private String        baseSize;
+
+  /**
+   *  Time at which the order should be cancelled if it's not filled.
+   *  RFC3339 Timestamp.
+   */
+  @JsonProperty("end_time")
+  private String        endTime;
 
   /**
    *  Ceiling price for which the order should get filled.
@@ -44,24 +53,27 @@ public class CoinbaseStopLimitGtcImpl implements CoinbaseStopLimitGtc
   /**
    * 
    */
-  public CoinbaseStopLimitGtcImpl()
+  public CoinbaseStopLimitGtdImpl()
   {
     super();
+    // TODO Auto-generated constructor stub
   }
 
 
   /**
    * @param baseSize
+   * @param endTime
    * @param limitPrice
    * @param stopDirection
    * @param stopPrice
    */
-  public CoinbaseStopLimitGtcImpl(String baseSize, String limitPrice, StopDirection stopDirection,
-                      String stopPrice)
+  public CoinbaseStopLimitGtdImpl(String baseSize, String endTime, String limitPrice,
+                      StopDirection stopDirection, String stopPrice)
   {
     super();
     this.baseSize = StringUtils.hasText(baseSize) ? baseSize : null;
     this.limitPrice = StringUtils.hasText(limitPrice) ? limitPrice : null;
+    this.endTime = endTime;
     this.stopDirection = stopDirection;
     this.stopPrice = StringUtils.hasText(stopPrice) ? stopPrice : null;
   }
@@ -74,6 +86,16 @@ public class CoinbaseStopLimitGtcImpl implements CoinbaseStopLimitGtc
   public String getBaseSize()
   {
     return baseSize;
+  }
+
+
+  /**
+   * @return the endTime
+   */
+  @Override
+  public String getEndTime()
+  {
+    return endTime;
   }
 
 
@@ -115,6 +137,17 @@ public class CoinbaseStopLimitGtcImpl implements CoinbaseStopLimitGtc
     String baseSize)
   {
     this.baseSize = baseSize;
+  }
+
+
+  /**
+   * @param endTime the endTime to set
+   */
+  @Override
+  public void setEndTime(
+    String endTime)
+  {
+    this.endTime = endTime;
   }
 
 

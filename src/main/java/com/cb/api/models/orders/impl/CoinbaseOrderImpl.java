@@ -1,11 +1,19 @@
 /**
  * 
  */
-package com.cb.api.models.orders;
+package com.cb.api.models.orders.impl;
 
 
 import java.time.Instant;
 
+import com.cb.api.models.orders.CoinbaseOrder;
+import com.cb.api.models.orders.EditHistory;
+import com.cb.api.models.orders.OrderPlacementSource;
+import com.cb.api.models.orders.OrderStatus;
+import com.cb.api.models.orders.OrderTimeInForce;
+import com.cb.api.models.orders.OrderType;
+import com.cb.api.models.orders.RejectReason;
+import com.cb.api.models.orders.TriggerStatus;
 import com.cb.api.models.products.ProductType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -14,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  */
 @SuppressWarnings("serial")
-public class CoinbaseOrderImpl extends CoinbaseNewOrderImpl implements CoinbaseOrder<CoinbaseOrderConfiguration>
+public class CoinbaseOrderImpl extends CoinbaseNewOrderImpl implements CoinbaseOrder
 {
 
   /**

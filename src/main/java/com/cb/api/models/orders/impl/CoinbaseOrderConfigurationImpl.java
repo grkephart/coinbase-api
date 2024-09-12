@@ -1,9 +1,19 @@
 /**
  * 
  */
-package com.cb.api.models.orders;
+package com.cb.api.models.orders.impl;
 
 
+import com.cb.api.models.orders.CoinbaseLimitFok;
+import com.cb.api.models.orders.CoinbaseLimitGtc;
+import com.cb.api.models.orders.CoinbaseLimitGtd;
+import com.cb.api.models.orders.CoinbaseMarketIoc;
+import com.cb.api.models.orders.CoinbaseOrderConfiguration;
+import com.cb.api.models.orders.CoinbaseSorLimitIoc;
+import com.cb.api.models.orders.CoinbaseStopLimitGtc;
+import com.cb.api.models.orders.CoinbaseStopLimitGtd;
+import com.cb.api.models.orders.CoinbaseTriggerBracketGtc;
+import com.cb.api.models.orders.CoinbaseTriggerBracketGtd;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -14,37 +24,46 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguration
 {
   @JsonProperty("limit_limit_fok")
-  private CoinbaseLimitFok         limitFok;
+  private CoinbaseLimitFokImpl          limitFok;
 
   @JsonProperty("limit_limit_gtc")
-  private CoinbaseLimitGtc         limitGtc;
+  private CoinbaseLimitGtcImpl          limitGtc;
 
   @JsonProperty("limit_limit_gtd")
-  private CoinbaseLimitGtd limitGtd;
+  private CoinbaseLimitGtdImpl          limitGtd;
 
   @JsonProperty("market_market_ioc")
-  private CoinbaseMarketIoc        marketIoc;
+  private CoinbaseMarketIocImpl         marketIoc;
 
   @JsonProperty("sor_limit_ioc")
-  private CoinbaseSorLimitIoc      sorLimitIoc;
+  private CoinbaseSorLimitIocImpl       sorLimitIoc;
 
   @JsonProperty("stop_limit_stop_limit_gtc")
-  private CoinbaseStopLimitGtc             stopLimitGtc;
+  private CoinbaseStopLimitGtcImpl      stopLimitGtc;
 
   @JsonProperty("stop_limit_stop_limit_gtd")
-  private CoinbaseStopLimitGtd             stopLimitGtd;
+  private CoinbaseStopLimitGtdImpl      stopLimitGtd;
 
   @JsonProperty("trigger_bracket_gtc")
-  private CoinbaseTriggerBracketGtc        triggerBracketGtc;
+  private CoinbaseTriggerBracketGtcImpl triggerBracketGtc;
 
   @JsonProperty("trigger_bracket_gtd")
-  private CoinbaseTriggerBracketGtd        triggerBracketGtd;
+  private CoinbaseTriggerBracketGtdImpl triggerBracketGtd;
 
   /**
    * 
    */
   public CoinbaseOrderConfigurationImpl()
   {
+  }
+
+
+  /**
+   * @param marketIoc
+   */
+  public CoinbaseOrderConfigurationImpl(CoinbaseMarketIoc marketIoc)
+  {
+    this.marketIoc = (CoinbaseMarketIocImpl)marketIoc;
   }
 
 
@@ -145,7 +164,7 @@ public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguratio
   public void setLimitFok(
     CoinbaseLimitFok limitFok)
   {
-    this.limitFok = limitFok;
+    this.limitFok = (CoinbaseLimitFokImpl)limitFok;
   }
 
 
@@ -156,7 +175,7 @@ public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguratio
   public void setLimitGtc(
     CoinbaseLimitGtc limitGtc)
   {
-    this.limitGtc = limitGtc;
+    this.limitGtc = (CoinbaseLimitGtcImpl)limitGtc;
   }
 
 
@@ -167,7 +186,7 @@ public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguratio
   public void setLimitGtd(
     CoinbaseLimitGtd limitGtd)
   {
-    this.limitGtd = limitGtd;
+    this.limitGtd = (CoinbaseLimitGtdImpl)limitGtd;
   }
 
 
@@ -178,7 +197,7 @@ public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguratio
   public void setMarketIoc(
     CoinbaseMarketIoc marketIoc)
   {
-    this.marketIoc = marketIoc;
+    this.marketIoc = (CoinbaseMarketIocImpl)marketIoc;
   }
 
 
@@ -189,7 +208,7 @@ public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguratio
   public void setSorLimitIoc(
     CoinbaseSorLimitIoc sorLimitIoc)
   {
-    this.sorLimitIoc = sorLimitIoc;
+    this.sorLimitIoc = (CoinbaseSorLimitIocImpl)sorLimitIoc;
   }
 
 
@@ -200,7 +219,7 @@ public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguratio
   public void setStopLimitGtc(
     CoinbaseStopLimitGtc stopLimitGtc)
   {
-    this.stopLimitGtc = stopLimitGtc;
+    this.stopLimitGtc = (CoinbaseStopLimitGtcImpl)stopLimitGtc;
   }
 
 
@@ -211,7 +230,7 @@ public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguratio
   public void setStopLimitGtd(
     CoinbaseStopLimitGtd stopLimitGtd)
   {
-    this.stopLimitGtd = stopLimitGtd;
+    this.stopLimitGtd = (CoinbaseStopLimitGtdImpl)stopLimitGtd;
   }
 
 
@@ -222,7 +241,7 @@ public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguratio
   public void setTriggerBracketGtc(
     CoinbaseTriggerBracketGtc triggerBracketGtc)
   {
-    this.triggerBracketGtc = triggerBracketGtc;
+    this.triggerBracketGtc = (CoinbaseTriggerBracketGtcImpl)triggerBracketGtc;
   }
 
 
@@ -233,7 +252,7 @@ public class CoinbaseOrderConfigurationImpl implements CoinbaseOrderConfiguratio
   public void setTriggerBracketGtd(
     CoinbaseTriggerBracketGtd triggerBracketGtd)
   {
-    this.triggerBracketGtd = triggerBracketGtd;
+    this.triggerBracketGtd = (CoinbaseTriggerBracketGtdImpl)triggerBracketGtd;
   }
 
 }
