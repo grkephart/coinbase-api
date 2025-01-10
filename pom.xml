@@ -2,11 +2,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.cb</groupId>
-  <artifactId>cb-api</artifactId>
+  <groupId>org.drdeesw</groupId>
+  <artifactId>coinbase-api</artifactId>
   <version>0.0.1</version>
-  <name>CB API</name>
-  <description>Demo project for Spring Boot</description>
+  <name>Coinbase API</name>
+  <description>Feign interface to Coinbase</description>
 
   <properties>
     <maven.compiler.target>11</maven.compiler.target>
