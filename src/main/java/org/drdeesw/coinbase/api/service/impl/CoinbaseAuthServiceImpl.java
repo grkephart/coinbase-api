@@ -9,11 +9,8 @@ import org.drdeesw.coinbase.api.models.auth.AccessToken;
 import org.drdeesw.coinbase.api.models.auth.AuthTokenRequest;
 import org.drdeesw.coinbase.api.service.CoinbaseAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 /**
