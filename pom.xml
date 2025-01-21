@@ -6,6 +6,7 @@
   <artifactId>coinbase-api</artifactId>
   <version>0.0.1</version>
   <name>Coinbase API</name>
+  <packaging>jar</packaging>
   <description>Feign interface to Coinbase</description>
 
   <properties>
